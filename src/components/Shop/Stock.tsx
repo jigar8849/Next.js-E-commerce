@@ -12,7 +12,7 @@ interface Category {
   id: number;
   name: string;
   count: number;
-  image: any;
+  image: StaticImageData;
 }
 
 const categories: Category[] = [

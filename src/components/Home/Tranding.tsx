@@ -3,8 +3,7 @@ import Link from "next/link";
 import ProductCard from '../AllCardss/Home/TrandingCard';
 import women1 from "../../../public/assets/trandingproduct1.png"
 import women2 from "../../../public/assets/trandingproduct2.png"
-import { Key } from 'lucide-react';
-import { title } from 'process';
+
 
 function Tranding() {
 
@@ -12,14 +11,14 @@ function Tranding() {
     {
       image: women1,
       brand: "Rosyz",
-      title: "Casual Men’s Shirt",
+      title: "Casual Mens Shirt",
       price: 49.99,
       href: "/products/mens-shirt",
     },
     {
       image: women2,
       brand: "Rosyz",
-      title: "Trendy Women’s Dress",
+      title: "Trendy Womens Dress",
       price: 79.99,
       href: "/products/womens-dress",
     },

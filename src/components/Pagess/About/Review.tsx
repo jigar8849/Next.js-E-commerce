@@ -68,7 +68,7 @@ export default function Testimonials() {
             <StarRating count={t.rating} />
 
             <h4 className="mt-4 font-bold">{t.title}</h4>
-            <p className="text-gray-600 italic mt-2">"{t.feedback}"</p>
+            <p className="text-gray-600 italic mt-2">&quot;{t.feedback}&quot;</p>
           </div>
         ))}
       </div>

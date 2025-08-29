@@ -12,7 +12,7 @@ const Comfort: React.FC = () => {
           Style Meets Comfort In Every Outfit
         </h1>
         <p className="text-base text-gray-800 leading-relaxed">
-          Chic doesn't have to compromise comfort. <br />
+          Chic doesn&apos;t have to compromise comfort. <br />
           Embrace style that feels as good as it looks. Our collection prioritizes.
         </p>
       </div>

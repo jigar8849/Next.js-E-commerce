@@ -47,10 +47,10 @@ const products: Product[] = [
   },
 ];
 
-const tabs = ["Bag", "Glasses", "Trending"];
+// const tabs = ["Bag", "Glasses", "Trending"];
 
 const Twist: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("Bag");
+  // const [activeTab, setActiveTab] = useState("Bag");
 
   return (
     <section className="py-16 text-center">
