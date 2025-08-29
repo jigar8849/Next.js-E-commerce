@@ -7,21 +7,22 @@ import Hero from "@/components/Home/Hero";
 import Promo from "@/components/Home/Promo";
 import Review from "@/components/Home/Review";
 import Tranding from "@/components/Home/Tranding";
-
+import { Analytics } from "@vercel/analytics/next";
 export default function Home() {
   return (
-   <>
-   <main>
-    <Hero />
-    <Categories />
-    <Promo />
-    <Tranding />
-    <BestSelling />
-    <Collection />
-    <Blog />
-    <Review />
-    <Follow />
-   </main>
-   </>
+    <>
+      <main>
+        <Hero />
+        <Categories />
+        <Promo />
+        <Tranding />
+        <BestSelling />
+        <Collection />
+        <Blog />
+        <Review />
+        <Follow />
+        <Analytics />
+      </main>
+    </>
   );
 }
