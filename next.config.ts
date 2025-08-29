@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
     eslint: {
     ignoreDuringBuilds: true, // 🚫 Skips ESLint checks on Vercel
   },
+    images: {
+    domains: ['images.pexels.com'], // ✅ allow this external domain
+  },
 };
 
 export default nextConfig;

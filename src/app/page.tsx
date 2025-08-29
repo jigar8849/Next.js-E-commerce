@@ -7,7 +7,6 @@ import Hero from "@/components/Home/Hero";
 import Promo from "@/components/Home/Promo";
 import Review from "@/components/Home/Review";
 import Tranding from "@/components/Home/Tranding";
-import Image from "next/image";
 
 export default function Home() {
   return (

@@ -1,14 +1,7 @@
 "use client";
 
 import React from "react";
-
-// import Img1 from '../../../public/assets/blog_post_1.png'
-// import Img2 from '../../../public/assets/blog_post_2.png'
-// import Img3 from '../../../public/assets/blog_post_3.png'
-// import Img4 from '../../../public/assets/blog_post_4.png'
-// import Img5 from '../../../public/assets/blog_post_5.png'
-// import Img6 from '../../../public/assets/blog_post_6.png'
-
+import Image from "next/image"; // ✅ Import Image
 
 interface BlogPost {
   id: number;
@@ -79,11 +72,15 @@ export default function BlogCards() {
             key={post.id}
             className="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition"
           >
-            <img
-              src={post.img}
-              alt={post.title}
-              className="h-56 w-full object-cover"
-            />
+            <div className="relative w-full h-56">
+              <Image
+                src={post.img}
+                alt={post.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
             <div className="p-5">
               <p className="text-sm text-gray-500">
                 {post.date} | {post.comments}
