@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image, {StaticImageData} from "next/image";
 
 // Import your images from public/assets
 import Accessories from "../../../public/assets/category_accessories.png"

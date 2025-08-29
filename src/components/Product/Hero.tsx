@@ -1,16 +1,14 @@
-// app/product/page.tsx
 "use client";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import Img1 from "../../../public/assets/filter1.png";
 import Img2 from "../../../public/assets/filter4.png";
 import Img3 from "../../../public/assets/trandingproduct2.png";
 import Img4 from "../../../public/assets/trandingproduct3.png";
-import mestroCard from '../../../public/assets/mestroCard.png'
-import visaCard from '../../../public/assets/visaCard.jpg'
-import masterCard from '../../../public/assets/masterCard.png'
-
+import mestroCard from '../../../public/assets/mestroCard.png';
+import visaCard from '../../../public/assets/visaCard.jpg';
+import masterCard from '../../../public/assets/masterCard.png';
 
 type Product = {
   name: string;
@@ -21,7 +19,7 @@ type Product = {
   vendor: string;
   type: string;
   available: boolean;
-  images: string[];
+  images: StaticImageData[];  // <-- Use StaticImageData here
 };
 
 const product: Product = {
@@ -38,7 +36,7 @@ const product: Product = {
 };
 
 export default function ProductPage() {
-  const [selectedImage, setSelectedImage] = useState<string>(product.images[0]);
+  const [selectedImage, setSelectedImage] = useState<StaticImageData>(product.images[0]);
   const [selectedSize, setSelectedSize] = useState<string>("M");
   const [quantity, setQuantity] = useState<number>(1);
 
@@ -63,9 +61,7 @@ export default function ProductPage() {
               <div
                 key={i}
                 className={`relative w-20 h-20 border rounded overflow-hidden cursor-pointer 
-                  ${
-                    selectedImage === img ? "border-black" : "border-gray-300"
-                  }`}
+                  ${selectedImage === img ? "border-black" : "border-gray-300"}`}
                 onClick={() => setSelectedImage(img)}
               >
                 <Image src={img} alt="thumb" fill className="object-cover" />
@@ -91,11 +87,7 @@ export default function ProductPage() {
                   key={size}
                   onClick={() => setSelectedSize(size)}
                   className={`border px-4 py-2 rounded transition 
-                    ${
-                      selectedSize === size
-                        ? "bg-black text-white"
-                        : "hover:bg-gray-200"
-                    }`}
+                    ${selectedSize === size ? "bg-black text-white" : "hover:bg-gray-200"}`}
                 >
                   {size}
                 </button>
@@ -145,59 +137,58 @@ export default function ProductPage() {
 
           {/* Extra Info */}
           <div className="mt-8 text-gray-700 text-base leading-relaxed">
-  <p className="text-lg">
-    <strong>Vendor:</strong> {product.vendor}
-  </p>
-  <p className="text-lg">
-    <strong>Type:</strong> {product.type}
-  </p>
-  <p className="text-lg">
-    <strong>Available:</strong>{" "}
-    {product.available ? "Yes" : "Out of stock"}
-  </p>
+            <p className="text-lg">
+              <strong>Vendor:</strong> {product.vendor}
+            </p>
+            <p className="text-lg">
+              <strong>Type:</strong> {product.type}
+            </p>
+            <p className="text-lg">
+              <strong>Available:</strong>{" "}
+              {product.available ? "Yes" : "Out of stock"}
+            </p>
 
-  <br />
-  <hr className="my-5" />
+            <br />
+            <hr className="my-5" />
 
-  {/* Extra Info with Icons */}
-  <div className="space-y-3">
-    <p className="flex items-center gap-3 text-lg">
-      <span className="text-xl">🔒</span> Secure payment
-      <span className="ml-6">🏅 2 Year Warranty</span>
-    </p>
-    <p className="flex items-center gap-3 text-lg">
-      <span className="text-xl">👥</span> 19 customers are viewing this product
-    </p>
-    <p className="flex items-center gap-3 text-lg">
-      <span className="text-xl">📦</span> 30 SOLD IN LAST 18 HOURS
-    </p>
-    <p className="flex items-center gap-3 text-lg">
-      <span className="text-xl">🚚</span> Spend $1,000.00 for Free Shipping
-    </p>
-  </div>
+            {/* Extra Info with Icons */}
+            <div className="space-y-3">
+              <p className="flex items-center gap-3 text-lg">
+                <span className="text-xl">🔒</span> Secure payment
+                <span className="ml-6">🏅 2 Year Warranty</span>
+              </p>
+              <p className="flex items-center gap-3 text-lg">
+                <span className="text-xl">👥</span> 19 customers are viewing this product
+              </p>
+              <p className="flex items-center gap-3 text-lg">
+                <span className="text-xl">📦</span> 30 SOLD IN LAST 18 HOURS
+              </p>
+              <p className="flex items-center gap-3 text-lg">
+                <span className="text-xl">🚚</span> Spend $1,000.00 for Free Shipping
+              </p>
+            </div>
 
-  <hr className="my-5" />
+            <hr className="my-5" />
 
-  {/* Social Share */}
-  <div className="flex gap-8 text-lg font-medium">
-    <button className="hover:text-black">📘 Share</button>
-    <button className="hover:text-black">🐦 Tweet</button>
-    <button className="hover:text-black">📌 Pin it</button>
-  </div>
+            {/* Social Share */}
+            <div className="flex gap-8 text-lg font-medium">
+              <button className="hover:text-black">📘 Share</button>
+              <button className="hover:text-black">🐦 Tweet</button>
+              <button className="hover:text-black">📌 Pin it</button>
+            </div>
 
-  <hr className="my-5" />
+            <hr className="my-5" />
 
-  {/* Safe Checkout */}
-  <div className="text-center">
-    <p className="font-semibold text-lg mb-3">Guarantee safe checkout</p>
-    <div className="flex justify-center gap-6">
-      <Image src={visaCard} alt="Visa" width={60} height={40} />
-      <Image src={masterCard} alt="Mastercard" width={60} height={40} />
-      <Image src={mestroCard} alt="Maestro" width={60} height={40} />
-    </div>
-  </div>
-</div>
-
+            {/* Safe Checkout */}
+            <div className="text-center">
+              <p className="font-semibold text-lg mb-3">Guarantee safe checkout</p>
+              <div className="flex justify-center gap-6">
+                <Image src={visaCard} alt="Visa" width={60} height={40} />
+                <Image src={masterCard} alt="Mastercard" width={60} height={40} />
+                <Image src={mestroCard} alt="Maestro" width={60} height={40} />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

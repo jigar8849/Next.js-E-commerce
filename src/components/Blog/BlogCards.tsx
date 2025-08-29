@@ -1,7 +1,14 @@
 "use client";
 
 import React from "react";
-import Image from "next/image"; // ✅ Import Image
+import Image, { StaticImageData } from "next/image"; // ✅ Import StaticImageData here
+
+import Img1 from "../../../public/assets/blog1.webp";
+import Img2 from "../../../public/assets/blog2.webp";
+import Img3 from "../../../public/assets/blog3.webp";
+import Img4 from "../../../public/assets/blog4.webp";
+import Img5 from "../../../public/assets/blog5.webp";
+import Img6 from "../../../public/assets/blog3.webp";
 
 interface BlogPost {
   id: number;
@@ -9,7 +16,7 @@ interface BlogPost {
   comments: string;
   title: string;
   desc: string;
-  img: string;
+  img: StaticImageData;
 }
 
 const blogPosts: BlogPost[] = [
@@ -19,7 +26,7 @@ const blogPosts: BlogPost[] = [
     comments: "0 Comments",
     title: "Fashion Forward Exploring Future Trends",
     desc: "ANY, MEANING - IT DOESN'T MATTER WHAT COLOR OR PRINT IT IS. IT'LL WORK. Augue ut lectus arcu bibendum at..",
-    img: "https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg?auto=compress&cs=tinysrgb&w=600",
+    img: Img1,
   },
   {
     id: 2,
@@ -27,7 +34,7 @@ const blogPosts: BlogPost[] = [
     comments: "0 Comments",
     title: "Wardrobe Essentials Building a Timeless Collection",
     desc: "ANY, MEANING - IT DOESN'T MATTER WHAT COLOR OR PRINT IT IS. IT'LL WORK. Augue ut lectus arcu bibendum at..",
-    img: "https://images.pexels.com/photos/7679468/pexels-photo-7679468.jpeg?auto=compress&cs=tinysrgb&w=600",
+    img: Img2,
   },
   {
     id: 3,
@@ -35,7 +42,7 @@ const blogPosts: BlogPost[] = [
     comments: "0 Comments",
     title: "Runway To Reality: Adapting Fashion Week Trends",
     desc: "ANY, MEANING - IT DOESN'T MATTER WHAT COLOR OR PRINT IT IS. IT'LL WORK. Augue ut lectus arcu bibendum at..",
-    img: "https://images.pexels.com/photos/5325581/pexels-photo-5325581.jpeg?auto=compress&cs=tinysrgb&w=600",
+    img: Img3,
   },
   {
     id: 4,
@@ -43,7 +50,7 @@ const blogPosts: BlogPost[] = [
     comments: "0 Comments",
     title: "Chic And Unique Creating Your Signature Style",
     desc: "ANY, MEANING - IT DOESN'T MATTER WHAT COLOR OR PRINT IT IS. IT'LL WORK. Augue ut lectus arcu bibendum at..",
-    img: "https://images.pexels.com/photos/5965903/pexels-photo-5965903.jpeg?auto=compress&cs=tinysrgb&w=600",
+    img: Img4,
   },
   {
     id: 5,
@@ -51,7 +58,7 @@ const blogPosts: BlogPost[] = [
     comments: "0 Comments",
     title: "Behind The Seams The Making Of Fashion's Favorites",
     desc: "ANY, MEANING - IT DOESN'T MATTER WHAT COLOR OR PRINT IT IS. IT'LL WORK. Augue ut lectus arcu bibendum at..",
-    img: "https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg?auto=compress&cs=tinysrgb&w=600",
+    img: Img5,
   },
   {
     id: 6,
@@ -59,7 +66,7 @@ const blogPosts: BlogPost[] = [
     comments: "0 Comments",
     title: "Style Spotlight Embracing The Latest Trends",
     desc: "ANY, MEANING - IT DOESN'T MATTER WHAT COLOR OR PRINT IT IS. IT'LL WORK. Augue ut lectus arcu bibendum at..",
-    img: "https://images.pexels.com/photos/125047/pexels-photo-125047.jpeg?auto=compress&cs=tinysrgb&w=600",
+    img: Img6,
   },
 ];
 
@@ -80,6 +87,11 @@ export default function BlogCards() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
+              {/* Arrow Overlay */}
+              <div className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-opacity-75 transition">
+                {/* Right arrow unicode, you can replace with SVG if you want */}
+                &#8594;
+              </div>
             </div>
             <div className="p-5">
               <p className="text-sm text-gray-500">
