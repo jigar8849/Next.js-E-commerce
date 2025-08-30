@@ -19,7 +19,7 @@ type Product = {
   vendor: string;
   type: string;
   available: boolean;
-  images: StaticImageData[];  // <-- Use StaticImageData here
+  images: StaticImageData[];
 };
 
 const product: Product = {
@@ -42,9 +42,10 @@ export default function ProductPage() {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
-      {/* Top Section */}
+      {/* Main Grid Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Left: Main Image + Thumbnails */}
+        
+        {/* Left side: Image Gallery */}
         <div>
           <div className="relative w-full h-[800px] rounded-xl overflow-hidden shadow">
             <Image
@@ -54,31 +55,28 @@ export default function ProductPage() {
               className="object-cover"
             />
           </div>
-
-          {/* Thumbnails */}
           <div className="flex gap-3 mt-4">
-            {product.images.map((img, i) => (
+            {product.images.map((img, idx) => (
               <div
-                key={i}
-                className={`relative w-20 h-20 border rounded overflow-hidden cursor-pointer 
-                  ${selectedImage === img ? "border-black" : "border-gray-300"}`}
+                key={idx}
+                className={`relative w-20 h-20 border rounded overflow-hidden cursor-pointer ${
+                  selectedImage === img ? "border-black" : "border-gray-300"
+                }`}
                 onClick={() => setSelectedImage(img)}
               >
-                <Image src={img} alt="thumb" fill className="object-cover" />
+                <Image src={img} alt={`Thumbnail ${idx + 1}`} fill className="object-cover" />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Right: Product Info */}
+        {/* Right side: Product Details */}
         <div>
           <h2 className="text-2xl font-bold">{product.name}</h2>
-          <p className="text-xl font-semibold mt-2">
-            ${product.price.toFixed(2)}
-          </p>
+          <p className="text-xl font-semibold mt-2">${product.price.toFixed(2)}</p>
           <p className="text-gray-600 mt-2">{product.description}</p>
 
-          {/* Sizes */}
+          {/* Size selection */}
           <div className="mt-4">
             <p className="font-semibold">Size:</p>
             <div className="flex gap-2 mt-2">
@@ -86,8 +84,11 @@ export default function ProductPage() {
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
-                  className={`border px-4 py-2 rounded transition 
-                    ${selectedSize === size ? "bg-black text-white" : "hover:bg-gray-200"}`}
+                  className={`border px-4 py-2 rounded transition ${
+                    selectedSize === size
+                      ? "bg-black text-white"
+                      : "hover:bg-gray-200"
+                  }`}
                 >
                   {size}
                 </button>
@@ -95,7 +96,7 @@ export default function ProductPage() {
             </div>
           </div>
 
-          {/* Colors */}
+          {/* Color selection (just color dots, no selection state implemented yet) */}
           <div className="mt-4">
             <p className="font-semibold">Color:</p>
             <div className="flex gap-2 mt-2 flex-wrap">
@@ -109,7 +110,7 @@ export default function ProductPage() {
             </div>
           </div>
 
-          {/* Quantity + Buttons */}
+          {/* Quantity controls and action buttons */}
           <div className="mt-6 flex items-center gap-4">
             <div className="flex border rounded">
               <button
@@ -135,7 +136,7 @@ export default function ProductPage() {
             </button>
           </div>
 
-          {/* Extra Info */}
+          {/* Extra product info */}
           <div className="mt-8 text-gray-700 text-base leading-relaxed">
             <p className="text-lg">
               <strong>Vendor:</strong> {product.vendor}
@@ -144,8 +145,7 @@ export default function ProductPage() {
               <strong>Type:</strong> {product.type}
             </p>
             <p className="text-lg">
-              <strong>Available:</strong>{" "}
-              {product.available ? "Yes" : "Out of stock"}
+              <strong>Available:</strong> {product.available ? "Yes" : "Out of stock"}
             </p>
 
             <br />
@@ -179,7 +179,7 @@ export default function ProductPage() {
 
             <hr className="my-5" />
 
-            {/* Safe Checkout */}
+            {/* Payment methods */}
             <div className="text-center">
               <p className="font-semibold text-lg mb-3">Guarantee safe checkout</p>
               <div className="flex justify-center gap-6">

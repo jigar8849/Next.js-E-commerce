@@ -7,24 +7,30 @@ const Collection = () => {
   const womenCollection = [women1, women2, women3];
 
   return (
-    <div>
-      <p className="flex items-center justify-center mt-15 mb-5 text-red-500 sm:text-sm md:pt-10 md:text-xl">
-        BLOSSOM INTO STYLE: OUR SPRING FASHION PICKS
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      {/* Subtitle */}
+      <p className="text-center text-sm sm:text-base md:text-lg text-red-500 uppercase tracking-wide">
+        Blossom Into Style: Our Spring Fashion Picks
       </p>
-      <h2 className="flex items-center justify-center text-5xl font-semibold sm:text-2xl md:text-6xl md:font-semibold">
+
+      {/* Title */}
+      <h2 className="text-center text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mt-3">
         The Spring Collection
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-6 justify-items-center mt-10 pb-20">
+      {/* Image Grid */}
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {womenCollection.map((img, index) => (
-          <Image
-            key={index}
-            src={img}
-            alt={`Collection ${index + 1}`}
-            className="rounded-xl object-cover"
-            width={400}
-            height={500}
-          />
+          <div key={index} className="w-full aspect-[4/5] relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+            <Image
+              src={img}
+              alt={`Collection ${index + 1}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+              priority={index === 0}
+            />
+          </div>
         ))}
       </div>
     </div>

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 
@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
       <div className="flex-1 mt-6 md:mt-0">
         <Image
           src={post.image}
-          alt={post.title}
+          alt={`Featured post: ${post.title}`}
           className="rounded-lg shadow-md object-cover"
           width={700}
           height={700}
@@ -111,13 +111,15 @@ const Hero: React.FC = () => {
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white border rounded-full shadow p-2 hover:bg-gray-100"
+        aria-label="Previous featured post"
+        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white border rounded-full shadow p-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
         ‹
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white border rounded-full shadow p-2 hover:bg-gray-100"
+        aria-label="Next featured post"
+        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white border rounded-full shadow p-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
         ›
       </button>
